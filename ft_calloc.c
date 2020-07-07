@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 04:21:11 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/02 00:15:25 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2020/07/07 21:06:43 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ void	*ft_calloc(size_t count, size_t size)
 
 	nbytes = count * size;
 	p = malloc(nbytes);
-	if (p)
+	if (!p)
+		return (NULL);
+	else
 		ft_bzero(p, nbytes);
 	return (p);
 }
