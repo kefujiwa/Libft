@@ -6,27 +6,16 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 23:24:05 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/06 17:29:51 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2020/07/09 00:01:58 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_set(char c, char const *set)
-{
-	while (*set)
-	{
-		if (c == *set)
-			return (1);
-		set++;
-	}
-	return (0);
-}
-
 static char	*find_start(char *s, char *set)
 {
 	while (*s)
-		if (is_set(*s, set))
+		if (ft_strchr(set, *s))
 			s++;
 		else
 			break ;
@@ -39,7 +28,7 @@ static char	*find_end(char *s, char *set)
 
 	index = ft_strlen(s) - 1;
 	while (s[index])
-		if (is_set(s[index], set))
+		if (ft_strchr(set, s[index]))
 			index--;
 		else
 			break ;
@@ -57,7 +46,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	start = find_start((char*)s1, (char*)set);
 	end = find_end((char*)s1, (char*)set);
-	if (start == &s1[ft_strlen(s1)])
+	if (!*start)
 	{
 		if (!(str = (char*)ft_calloc(1, sizeof(char))))
 			return (NULL);

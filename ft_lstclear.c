@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 04:25:34 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/03 02:24:04 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2020/07/08 23:50:27 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,4 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		ft_lstdelone(*lst, del);
 		*lst = next_lst;
 	}
-	lst = NULL;
-	free(lst);
 }
