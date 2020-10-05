@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:08:42 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/09 22:11:10 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2020/10/05 21:09:04 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,25 @@ static int	is_space(char c)
 		return (1);
 	else
 		return (0);
+}
+
+static int	calc_atoi(const char *str, int sign, unsigned long num,
+unsigned long max)
+{
+	while (ft_isdigit(*str))
+	{
+		if (num < max / 10 || (num == max / 10 && *str - '0' <= 7))
+			num = num * 10 + (*str - '0');
+		else
+		{
+			if (sign == 1)
+				return (-1);
+			if (sign == -1)
+				return (0);
+		}
+		str++;
+	}
+	return ((int)num * sign);
 }
 
 int			ft_atoi(const char *str)
@@ -37,18 +56,5 @@ int			ft_atoi(const char *str)
 		sign = (*str == '+' ? 1 : -1);
 		str++;
 	}
-	while (ft_isdigit(*str))
-	{
-		if (num < max / 10 || (num == max / 10 && *str - '0' <= 7))
-			num = num * 10 + (*str - '0');
-		else
-		{
-			if (sign == 1)
-				return (-1);
-			if (sign == -1)
-				return (0);
-		}
-		str++;
-	}
-	return ((int)num * sign);
+	return (calc_atoi(str, sign, num, max));
 }

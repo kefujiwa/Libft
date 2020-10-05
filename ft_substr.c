@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:49:25 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/06 23:38:12 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2020/08/28 00:17:51 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!substr)
 		return (NULL);
 	p_substr = substr;
-	while (len && s[start] && start < ft_strlen(s))
+	while (len && start < ft_strlen(s) && s[start])
 	{
 		*p_substr = s[start];
 		p_substr++;
