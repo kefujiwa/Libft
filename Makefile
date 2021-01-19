@@ -2,88 +2,150 @@
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
+#                                                     +:+ +:+         +:+      # #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2020/07/05 19:00:30 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/01/20 00:30:02 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libft.a
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+### MAKEFILE ###
 
-SRCS	= ./
+## COLORS ##
 
-SRC	= $(SRCS)ft_memset.c\
-		$(SRCS)ft_memset.c\
-		$(SRCS)ft_bzero.c\
-		$(SRCS)ft_memcpy.c\
-		$(SRCS)ft_memccpy.c\
-		$(SRCS)ft_memmove.c\
-		$(SRCS)ft_memchr.c\
-		$(SRCS)ft_memcmp.c\
-		$(SRCS)ft_strlen.c\
-		$(SRCS)ft_strlcpy.c\
-		$(SRCS)ft_strlcat.c\
-		$(SRCS)ft_strchr.c\
-		$(SRCS)ft_strrchr.c\
-		$(SRCS)ft_strnstr.c\
-		$(SRCS)ft_strncmp.c\
-		$(SRCS)ft_atoi.c\
-		$(SRCS)ft_isalpha.c\
-		$(SRCS)ft_isdigit.c\
-		$(SRCS)ft_isalnum.c\
-		$(SRCS)ft_isascii.c\
-		$(SRCS)ft_isprint.c\
-		$(SRCS)ft_toupper.c\
-		$(SRCS)ft_tolower.c\
-		$(SRCS)ft_calloc.c\
-		$(SRCS)ft_strdup.c\
-		$(SRCS)ft_substr.c\
-		$(SRCS)ft_strjoin.c\
-		$(SRCS)ft_strtrim.c\
-		$(SRCS)ft_split.c\
-		$(SRCS)ft_itoa.c\
-		$(SRCS)ft_strmapi.c\
-		$(SRCS)ft_putchar_fd.c\
-		$(SRCS)ft_putstr_fd.c\
-		$(SRCS)ft_putendl_fd.c\
-		$(SRCS)ft_putnbr_fd.c\
+# Formats #
+_END				= \x1b[0m
+_BOLD				= \x1b[1m
+_DIM				= \x1b[2m
+_UNDER				= \x1b[4m
+_BLINK				= \x1b[5m
+_REV				= \x1b[7m
+_HIDDEN				= \x1b[8m
 
-SRCb	= $(SRCS)ft_lstnew.c\
-		$(SRCS)ft_lstadd_front.c\
-		$(SRCS)ft_lstsize.c\
-		$(SRCS)ft_lstlast.c\
-		$(SRCS)ft_lstadd_back.c\
-		$(SRCS)ft_lstdelone.c\
-		$(SRCS)ft_lstclear.c\
-		$(SRCS)ft_lstiter.c\
-		$(SRCS)ft_lstmap.c\
+# Foreground Colors #
+_GREY				= \x1b[30m
+_RED				= \x1b[31m
+_GREEN				= \x1b[32m
+_YELLOW				= \x1b[33m
+_BLUE				= \x1b[34m
+_PURPLE				= \x1b[35m
+_CYAN				= \x1b[36m
+_WHITE				= \x1b[37m
 
-OBJ	= $(SRC:.c=.o)
-
-OBJb	= $(SRCb:.c=.o)
+# Background Colors #
+_BGREY				= \x1b[40m
+_BRED				= \x1b[41m
+_BGREEN				= \x1b[42m
+_BYELLOW			= \x1b[43m
+_BBLUE				= \x1b[44m
+_BPURPLE			= \x1b[45m
+_BCYAN				= \x1b[46m
+_BWHITE				= \x1b[47m
 
 
-all:	$(NAME)
+# **************************************************************************** #
 
-$(NAME)	: $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+## VARIABLES ##
 
-bonus:	all $(OBJb)
-	ar rcs $(NAME) $(OBJb)
+# Compilation #
+CC					= gcc
+CFLAGS				= -Wall -Wextra -Werror
+AR					= ar rcs
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+# Delete #
+RM					= rm -rf
+
+# Directories #
+DIR_HEADERS			= ./includes/
+DIR_SRCS			= ./srcs/
+DIR_OBJS			= ./compiled_srcs/
+
+# Files #
+SRCS				= ft_memset.c \
+						ft_memset.c \
+						ft_bzero.c \
+						ft_memcpy.c \
+						ft_memccpy.c \
+						ft_memmove.c \
+						ft_memchr.c \
+						ft_memcmp.c \
+						ft_strlen.c \
+						ft_strlcpy.c \
+						ft_strlcat.c \
+						ft_strchr.c \
+						ft_strrchr.c \
+						ft_strnstr.c \
+						ft_strncmp.c \
+						ft_atoi.c \
+						ft_isalpha.c \
+						ft_isdigit.c \
+						ft_isalnum.c \
+						ft_isascii.c \
+						ft_isprint.c \
+						ft_toupper.c \
+						ft_tolower.c \
+						ft_calloc.c \
+						ft_strdup.c \
+						ft_substr.c \
+						ft_strjoin.c \
+						ft_strtrim.c \
+						ft_split.c \
+						ft_itoa.c \
+						ft_strmapi.c \
+						ft_putchar_fd.c \
+						ft_putstr_fd.c \
+						ft_putendl_fd.c \
+						ft_putnbr_fd.c \
+						ft_lstnew.c \
+						ft_lstadd_front.c \
+						ft_lstsize.c \
+						ft_lstlast.c \
+						ft_lstadd_back.c \
+						ft_lstdelone.c \
+						ft_lstclear.c \
+						ft_lstiter.c \
+						ft_lstmap.c \
+
+# Compiled Files #
+OBJS				= $(SRCS:%.c=$(DIR_OBJS)%.o)
+NAME				= libft.a
+
+
+# **************************************************************************** #
+
+## RULES ##
+
+# Variables Rules #
+$(NAME):			$(OBJS)
+						@echo "$(_GREEN) All files compiled. $(_END)"
+						$(AR) $(NAME) $(OBJS)
+						@echo "$(_GREEN) Library '$(NAME)' compiled. $(_END)"
+
+# Compiled Source Files #
+$(OBJS):			$(DIR_OBJS)
+
+$(DIR_OBJS)%.o: 	$(DIR_SRCS)%.c
+						$(CC) $(CFLAGS) -I $(DIR_HEADERS) -c $< -o $@
+
+$(DIR_OBJS):
+						@mkdir $(DIR_OBJS)
+
+# Mandatory Part #
+all:				$(NAME)
 
 clean:
-	rm -rf $(OBJ) $(OBJb)
+						@$(RM) $(DIR_OBJS)
+						@$(RM) $(EXEC)
+						@echo "$(_YELLOW) '$(DIR_OBJS)' has been deleted. $(_END)"
 
-fclean: clean
-	rm -rf $(NAME)
+fclean:				clean
+						@$(RM) $(NAME)
+						@echo "$(_YELLOW) '$(NAME)' has been deleted. $(_END)"
 
-re: fclean all
+re:					fclean all
 
-.PHONY: all bonus clean fclean re
+# Bonus Part #
+bonus:				all
+
+# Phony #
+.PHONY:				all clean fclean re bonus
