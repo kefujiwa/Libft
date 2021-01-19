@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/01/20 01:08:03 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/01/20 02:38:42 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,6 +106,7 @@ SRCS				= ft_memset.c \
 						ft_lstclear.c \
 						ft_lstiter.c \
 						ft_lstmap.c \
+						get_next_line.c \
 
 # Compiled Files #
 OBJS				= $(SRCS:%.c=$(DIR_OBJS)%.o)
