@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:08:42 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/10/05 21:09:04 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/02/16 01:19:54 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,24 @@ static int	is_space(char c)
 		return (0);
 }
 
-static int	calc_atoi(const char *str, int sign, unsigned long num,
-unsigned long max)
+static int	calc_atoi(const char *str, int sign)
 {
+	unsigned long	num;
+	unsigned long	max;
+	int				digit;
+
+	num = 0;
+	max = 9223372036854775807;
+	digit = (sign == 1 ? 7 : 8);
 	while (ft_isdigit(*str))
 	{
-		if (num < max / 10 || (num == max / 10 && *str - '0' <= 7))
+		if (num < max / 10 || (num == max / 10 && *str - '0' <= digit))
 			num = num * 10 + (*str - '0');
 		else
 		{
 			if (sign == 1)
 				return (-1);
-			if (sign == -1)
+			else
 				return (0);
 		}
 		str++;
@@ -42,12 +48,8 @@ unsigned long max)
 
 int			ft_atoi(const char *str)
 {
-	unsigned long	num;
-	unsigned long	max;
-	int				sign;
+	int	sign;
 
-	num = 0;
-	max = 9223372036854775807;
 	sign = 1;
 	while (is_space(*str))
 		str++;
@@ -56,5 +58,5 @@ int			ft_atoi(const char *str)
 		sign = (*str == '+' ? 1 : -1);
 		str++;
 	}
-	return (calc_atoi(str, sign, num, max));
+	return (calc_atoi(str, sign));
 }
