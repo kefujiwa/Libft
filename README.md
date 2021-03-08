@@ -1,6 +1,6 @@
-# libft
+# Libft
 
-libft is an extension/remake of the standard library.
+Libft is an extension/remake of the standard library.
 
 ## Getting Started
 
