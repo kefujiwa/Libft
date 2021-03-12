@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:08:42 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/02/16 01:19:54 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/03/13 01:54:55 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	calc_atoi(const char *str, int sign)
 	int				digit;
 
 	num = 0;
-	max = 9223372036854775807;
+	max = LLONG_MAX;
 	digit = (sign == 1 ? 7 : 8);
 	while (ft_isdigit(*str))
 	{
