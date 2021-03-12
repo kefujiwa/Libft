@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/13 01:41:38 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/13 03:35:12 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,16 +57,37 @@ AR					= ar rcs
 RM					= rm -rf
 
 # Directories #
-HEADER_DIR			= ./includes/
-SRCS_DIR			= ./srcs/
-OBJS_DIR			= ./objs/
-MEM_DIR				= ./mem/
-CHAR_DIR			= ./char/
-STR_DIR				= ./str/
-LIST_DIR			= ./list/
-GNL_DIR				= ./gnl/
+HEADER_DIR			= includes/
+SRCS_DIR			= srcs/
+OBJS_DIR			= objs/
+CHAR_DIR			= char/
+GNL_DIR				= gnl/
+LIST_DIR			= list/
+MEM_DIR				= mem/
+PUT_DIR				= put/
+STR_DIR				= str/
 
 # Files #
+CHAR				= ft_isalnum \
+					  ft_isalpha \
+					  ft_isascii \
+					  ft_isdigit \
+					  ft_isprint \
+					  ft_tolower \
+					  ft_toupper
+
+GNL					= get_next_line
+
+LIST				= ft_lstadd_back \
+					  ft_lstadd_front \
+					  ft_lstclear \
+					  ft_lstdelone \
+					  ft_lstiter \
+					  ft_lstlast \
+					  ft_lstmap \
+					  ft_lstnew \
+					  ft_lstsize
+
 MEM					= ft_bzero \
 					  ft_memccpy \
 					  ft_memchr \
@@ -75,13 +96,10 @@ MEM					= ft_bzero \
 					  ft_memmove \
 					  ft_memset
 
-CHAR				= ft_isalnum \
-					  ft_isalpha \
-					  ft_isascii \
-					  ft_isdigit \
-					  ft_isprint \
-					  ft_tolower \
-					  ft_toupper
+PUT					= ft_putchar_fd \
+					  ft_putendl_fd \
+					  ft_putnbr_fd \
+					  ft_putstr_fd
 
 STR					= ft_atoi \
 					  ft_strchr \
@@ -100,23 +118,12 @@ STR					= ft_atoi \
 					  ft_strmapi \
 					  ft_strtrim
 
-LIST				= ft_lstadd_back \
-					  ft_lstadd_front \
-					  ft_lstclear \
-					  ft_lstdelone \
-					  ft_lstiter \
-					  ft_lstlast \
-					  ft_lstmap \
-					  ft_lstnew \
-					  ft_lstsize
-
-GNL					= get_next_line
-
-SRCS				= $(addprefix $(MEM_DIR), $(addsuffix .c, $(MEM))) \
-					  $(addprefix $(CHAR_DIR), $(addsuffix .c, $(CHAR))) \
-					  $(addprefix $(STR_DIR), $(addsuffix .c, $(STR))) \
+SRCS				= $(addprefix $(CHAR_DIR), $(addsuffix .c, $(CHAR))) \
+					  $(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL))) \
 					  $(addprefix $(LIST_DIR), $(addsuffix .c, $(LIST))) \
-					  $(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL)))
+					  $(addprefix $(MEM_DIR), $(addsuffix .c, $(MEM))) \
+					  $(addprefix $(PUT_DIR), $(addsuffix .c, $(PUT))) \
+					  $(addprefix $(STR_DIR), $(addsuffix .c, $(STR)))
 
 # Compiled Files #
 OBJS				= $(SRCS:%.c=$(OBJS_DIR)%.o)
@@ -132,20 +139,19 @@ all:				$(NAME)
 
 clean:
 						@$(RM) $(OBJS_DIR)
-						@echo "$(_RED) '$(OBJS_DIR)' has been deleted. \n$(_END)"
+						@echo "$(_RED) '$(OBJS_DIR)' has been deleted.$(_END)"
 
 fclean:				clean
 						@$(RM) $(NAME)
-						@echo "$(_RED) '$(NAME)' has been deleted. \n$(_END)"
+						@echo "$(_RED) '$(NAME)' has been deleted.$(_END)"
 
 re:					fclean all
 
 # Variables Rules #
 $(NAME):			$(OBJS)
-						@echo "\n"
-						@echo "$(_GREEN) Compiling Libft... $(_END)"
+						@echo "\n$(_GREEN) Compiling Libft... $(_END)"
 						@$(AR) $(NAME) $(OBJS)
-						@echo "$(_GREEN)\n Library '$(NAME)' compiled. $(_END)"
+						@echo "$(_GREEN) Library '$(NAME)' compiled. $(_END)"
 
 # Compiled Source Files #
 $(OBJS):			$(OBJS_DIR)
@@ -156,11 +162,12 @@ $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
 
 $(OBJS_DIR):
 						@mkdir -p $(OBJS_DIR)
-						@mkdir -p $(OBJS_DIR)$(MEM_DIR)
 						@mkdir -p $(OBJS_DIR)$(CHAR_DIR)
-						@mkdir -p $(OBJS_DIR)$(STR_DIR)
-						@mkdir -p $(OBJS_DIR)$(LIST_DIR)
 						@mkdir -p $(OBJS_DIR)$(GNL_DIR)
+						@mkdir -p $(OBJS_DIR)$(LIST_DIR)
+						@mkdir -p $(OBJS_DIR)$(MEM_DIR)
+						@mkdir -p $(OBJS_DIR)$(PUT_DIR)
+						@mkdir -p $(OBJS_DIR)$(STR_DIR)
 
 # Phony #
 .PHONY:				all clean fclean re
