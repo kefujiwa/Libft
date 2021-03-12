@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/13 03:35:12 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/13 03:59:21 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -157,7 +157,7 @@ $(NAME):			$(OBJS)
 $(OBJS):			$(OBJS_DIR)
 
 $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
-						@printf "$(_YELLOW) Generating Libft objects... %s\r" $@
+						@printf "$(_YELLOW) Generating Libft objects... %s\r$(END)" $@
 						@$(CC) $(CFLAGS) -I $(HEADER_DIR) -c $< -o $@
 
 $(OBJS_DIR):
