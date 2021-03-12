@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/01/20 02:38:42 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/13 01:41:38 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,59 +57,69 @@ AR					= ar rcs
 RM					= rm -rf
 
 # Directories #
-DIR_HEADERS			= ./includes/
-DIR_SRCS			= ./srcs/
-DIR_OBJS			= ./compiled_srcs/
+HEADER_DIR			= ./includes/
+SRCS_DIR			= ./srcs/
+OBJS_DIR			= ./objs/
+MEM_DIR				= ./mem/
+CHAR_DIR			= ./char/
+STR_DIR				= ./str/
+LIST_DIR			= ./list/
+GNL_DIR				= ./gnl/
 
 # Files #
-SRCS				= ft_memset.c \
-						ft_memset.c \
-						ft_bzero.c \
-						ft_memcpy.c \
-						ft_memccpy.c \
-						ft_memmove.c \
-						ft_memchr.c \
-						ft_memcmp.c \
-						ft_strlen.c \
-						ft_strlcpy.c \
-						ft_strlcat.c \
-						ft_strchr.c \
-						ft_strrchr.c \
-						ft_strnstr.c \
-						ft_strncmp.c \
-						ft_atoi.c \
-						ft_isalpha.c \
-						ft_isdigit.c \
-						ft_isalnum.c \
-						ft_isascii.c \
-						ft_isprint.c \
-						ft_toupper.c \
-						ft_tolower.c \
-						ft_calloc.c \
-						ft_strdup.c \
-						ft_substr.c \
-						ft_strjoin.c \
-						ft_strtrim.c \
-						ft_split.c \
-						ft_itoa.c \
-						ft_strmapi.c \
-						ft_putchar_fd.c \
-						ft_putstr_fd.c \
-						ft_putendl_fd.c \
-						ft_putnbr_fd.c \
-						ft_lstnew.c \
-						ft_lstadd_front.c \
-						ft_lstsize.c \
-						ft_lstlast.c \
-						ft_lstadd_back.c \
-						ft_lstdelone.c \
-						ft_lstclear.c \
-						ft_lstiter.c \
-						ft_lstmap.c \
-						get_next_line.c \
+MEM					= ft_bzero \
+					  ft_memccpy \
+					  ft_memchr \
+					  ft_memcmp \
+					  ft_memcpy \
+					  ft_memmove \
+					  ft_memset
+
+CHAR				= ft_isalnum \
+					  ft_isalpha \
+					  ft_isascii \
+					  ft_isdigit \
+					  ft_isprint \
+					  ft_tolower \
+					  ft_toupper
+
+STR					= ft_atoi \
+					  ft_strchr \
+					  ft_strlcat \
+					  ft_strlcpy \
+					  ft_strlen \
+					  ft_strnstr \
+					  ft_strncmp \
+					  ft_strrchr \
+					  ft_calloc \
+					  ft_itoa \
+					  ft_split \
+					  ft_substr \
+					  ft_strdup \
+					  ft_strjoin \
+					  ft_strmapi \
+					  ft_strtrim
+
+LIST				= ft_lstadd_back \
+					  ft_lstadd_front \
+					  ft_lstclear \
+					  ft_lstdelone \
+					  ft_lstiter \
+					  ft_lstlast \
+					  ft_lstmap \
+					  ft_lstnew \
+					  ft_lstsize
+
+GNL					= get_next_line
+
+SRCS				= $(addprefix $(MEM_DIR), $(addsuffix .c, $(MEM))) \
+					  $(addprefix $(CHAR_DIR), $(addsuffix .c, $(CHAR))) \
+					  $(addprefix $(STR_DIR), $(addsuffix .c, $(STR))) \
+					  $(addprefix $(LIST_DIR), $(addsuffix .c, $(LIST))) \
+					  $(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL)))
 
 # Compiled Files #
-OBJS				= $(SRCS:%.c=$(DIR_OBJS)%.o)
+OBJS				= $(SRCS:%.c=$(OBJS_DIR)%.o)
 NAME				= libft.a
 
 
@@ -117,37 +127,40 @@ NAME				= libft.a
 
 ## RULES ##
 
-# Variables Rules #
-$(NAME):			$(OBJS)
-						@echo "$(_GREEN) All files compiled. $(_END)"
-						$(AR) $(NAME) $(OBJS)
-						@echo "$(_GREEN) Library '$(NAME)' compiled. $(_END)"
-
-# Compiled Source Files #
-$(OBJS):			$(DIR_OBJS)
-
-$(DIR_OBJS)%.o: 	$(DIR_SRCS)%.c
-						$(CC) $(CFLAGS) -I $(DIR_HEADERS) -c $< -o $@
-
-$(DIR_OBJS):
-						@mkdir $(DIR_OBJS)
-
-# Mandatory Part #
+# Main Rules #
 all:				$(NAME)
 
 clean:
-						@$(RM) $(DIR_OBJS)
-						@$(RM) $(EXEC)
-						@echo "$(_YELLOW) '$(DIR_OBJS)' has been deleted. $(_END)"
+						@$(RM) $(OBJS_DIR)
+						@echo "$(_RED) '$(OBJS_DIR)' has been deleted. \n$(_END)"
 
 fclean:				clean
 						@$(RM) $(NAME)
-						@echo "$(_YELLOW) '$(NAME)' has been deleted. $(_END)"
+						@echo "$(_RED) '$(NAME)' has been deleted. \n$(_END)"
 
 re:					fclean all
 
-# Bonus Part #
-bonus:				all
+# Variables Rules #
+$(NAME):			$(OBJS)
+						@echo "\n"
+						@echo "$(_GREEN) Compiling Libft... $(_END)"
+						@$(AR) $(NAME) $(OBJS)
+						@echo "$(_GREEN)\n Library '$(NAME)' compiled. $(_END)"
+
+# Compiled Source Files #
+$(OBJS):			$(OBJS_DIR)
+
+$(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
+						@printf "$(_YELLOW) Generating Libft objects... %s\r" $@
+						@$(CC) $(CFLAGS) -I $(HEADER_DIR) -c $< -o $@
+
+$(OBJS_DIR):
+						@mkdir -p $(OBJS_DIR)
+						@mkdir -p $(OBJS_DIR)$(MEM_DIR)
+						@mkdir -p $(OBJS_DIR)$(CHAR_DIR)
+						@mkdir -p $(OBJS_DIR)$(STR_DIR)
+						@mkdir -p $(OBJS_DIR)$(LIST_DIR)
+						@mkdir -p $(OBJS_DIR)$(GNL_DIR)
 
 # Phony #
-.PHONY:				all clean fclean re bonus
+.PHONY:				all clean fclean re
