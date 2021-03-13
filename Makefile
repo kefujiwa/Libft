@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/13 12:45:56 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/13 13:11:31 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -139,24 +139,24 @@ all:				$(NAME)
 
 clean:
 						@$(RM) $(OBJS_DIR)
-						@echo "$(_RED)Libft objects has been deleted.$(_END)"
+						@echo "$(_YELLOW)Libft objects has been deleted.$(_END)"
 
 fclean:				clean
 						@$(RM) $(NAME)
-						@echo "$(_RED)Library '$(NAME)' has been deleted.$(_END)"
+						@echo "$(_YELLOW)Library '$(NAME)' has been deleted.$(_END)"
 
 re:					fclean all
 
 # Variables Rules #
 $(NAME):			$(OBJS)
 						@$(AR) $(NAME) $(OBJS)
-						@echo "\n$(_GREEN)Library '$(NAME)' compiled. $(_END)"
+						@echo "\n$(_GREEN)Library '$(NAME)' compiled.$(_END)"
 
 # Compiled Source Files #
 $(OBJS):			$(OBJS_DIR)
 
 $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
-						@printf "$(_YELLOW)Generating Libft objects... %s\r$(_END)" $@
+						@printf "Generating Libft objects... %s\r" $@
 						@$(CC) $(CFLAGS) -I $(HEADER_DIR) -c $< -o $@
 
 $(OBJS_DIR):
