@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/13 13:11:31 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/14 21:28:08 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -138,25 +138,25 @@ NAME				= libft.a
 all:				$(NAME)
 
 clean:
+						@echo "$(_RED)Cleaning libft objects...\n$(_END)"
 						@$(RM) $(OBJS_DIR)
-						@echo "$(_YELLOW)Libft objects has been deleted.$(_END)"
 
 fclean:				clean
+						@echo "$(_RED)Deleting library '$(NAME)'...\n$(_END)"
 						@$(RM) $(NAME)
-						@echo "$(_YELLOW)Library '$(NAME)' has been deleted.$(_END)"
 
 re:					fclean all
 
 # Variables Rules #
 $(NAME):			$(OBJS)
 						@$(AR) $(NAME) $(OBJS)
-						@echo "\n$(_GREEN)Library '$(NAME)' compiled.$(_END)"
+						@echo "\n\n$(_GREEN)Library '$(NAME)' compiled.\n$(_END)"
 
 # Compiled Source Files #
 $(OBJS):			$(OBJS_DIR)
 
 $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
-						@printf "Generating Libft objects... %s\r" $@
+						@printf "$(_YELLOW)Generating libft objects... %-33.33s\r$(_END)" $@
 						@$(CC) $(CFLAGS) -I $(HEADER_DIR) -c $< -o $@
 
 $(OBJS_DIR):
