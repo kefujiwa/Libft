@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/24 00:32:45 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/24 01:16:19 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,6 +103,7 @@ PUT					= ft_putchar_fd \
 
 STR					= ft_atoi \
 					  ft_strchr \
+					  ft_strcmp \
 					  ft_strlcat \
 					  ft_strlcpy \
 					  ft_strlen \
