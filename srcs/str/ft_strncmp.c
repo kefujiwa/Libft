@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 04:23:24 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/06 17:21:12 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/03/24 01:14:53 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	if (n == 0)
 		return (0);
-	while (n-- && *s1 == *s2 && *s1 && *s2)
+	while (n-- && *s1 && *s2 && *s1 == *s2)
 	{
 		if (n != 0)
 		{
