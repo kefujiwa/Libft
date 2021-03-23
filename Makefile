@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/24 01:16:19 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/24 01:18:41 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 ## COLORS ##
 
 # Formats #
-_END				= \x1b[0m
+_RESET				= \x1b[0m
 _BOLD				= \x1b[1m
 _DIM				= \x1b[2m
 _UNDER				= \x1b[4m
@@ -139,25 +139,25 @@ NAME				= libft.a
 all:				$(NAME)
 
 clean:
-						@echo "$(_RED)Cleaning libft objects...\n$(_END)"
+						@echo "$(_RED)Cleaning libft objects...\n$(_RESET)"
 						@$(RM) $(OBJS_DIR)
 
 fclean:				clean
-						@echo "$(_RED)Deleting library '$(NAME)'...\n$(_END)"
+						@echo "$(_RED)Deleting library '$(NAME)'...\n$(_RESET)"
 						@$(RM) $(NAME)
 
 re:					fclean all
 
-# Variables Rules #
+# Variable Rules #
 $(NAME):			$(OBJS)
 						@$(AR) $(NAME) $(OBJS)
-						@echo "\n\n$(_GREEN)Library '$(NAME)' compiled.\n$(_END)"
+						@echo "\n\n$(_GREEN)Library '$(NAME)' compiled.\n$(_RESET)"
 
 # Compiled Source Files #
 $(OBJS):			$(OBJS_DIR)
 
 $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
-						@printf "$(_YELLOW)Generating libft objects... %-33.33s\r$(_END)" $@
+						@printf "$(_YELLOW)Generating libft objects... %-33.33s\r$(_RESET)" $@
 						@$(CC) $(CFLAGS) -I $(HEADER_DIR) -c $< -o $@
 
 $(OBJS_DIR):
