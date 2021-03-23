@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:27:39 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/13 18:38:45 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/03/24 00:32:27 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ t_list				*ft_lstmap(t_list *lst,
 						void *(*f)(void*), void (*del)(void*));
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
+void				ft_lstsort(t_list **begin_list, int (*cmp)());
 
 /*
 ** *****************************************************************************

@@ -6,12 +6,11 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/14 21:28:08 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/24 00:32:45 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-### MAKEFILE ###
-
+### MAKEFILE ### 
 ## COLORS ##
 
 # Formats #
@@ -86,7 +85,8 @@ LIST				= ft_lstadd_back \
 					  ft_lstlast \
 					  ft_lstmap \
 					  ft_lstnew \
-					  ft_lstsize
+					  ft_lstsize \
+					  ft_lstsort
 
 MEM					= ft_bzero \
 					  ft_memccpy \
