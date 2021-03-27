@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:27:39 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/25 02:16:08 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/03/27 15:23:51 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,15 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_dlist
+{
+	void			*content;
+	struct s_dlist	*prev;
+	struct s_dlist	*next;
+}					t_dlist;
+
 /*
-** *****************************************************************************
 ** mem section
-** *****************************************************************************
 */
 
 void				ft_bzero(void *s, size_t n);
@@ -42,9 +47,7 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 
 /*
-** *****************************************************************************
 ** char section
-** *****************************************************************************
 */
 
 int					ft_isalnum(int c);
@@ -56,9 +59,7 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 
 /*
-** *****************************************************************************
 ** str section (without memory allocation)
-** *****************************************************************************
 */
 
 int					ft_atoi(const char *str);
@@ -74,9 +75,7 @@ int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strrchr(const char *s, int c);
 
 /*
-** *****************************************************************************
 ** str section (with memory allocation)
-** *****************************************************************************
 */
 
 void				*ft_calloc(size_t count, size_t size);
@@ -89,9 +88,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strtrim(char const *s1, char const *set);
 
 /*
-** *****************************************************************************
 ** put section
-** *****************************************************************************
 */
 
 void				ft_putchar_fd(char c, int fd);
@@ -100,9 +97,7 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 
 /*
-** *****************************************************************************
 ** list section
-** *****************************************************************************
 */
 
 void				ft_lstadd_back(t_list **lst, t_list *new);
@@ -118,9 +113,22 @@ int					ft_lstsize(t_list *lst);
 void				ft_lstsort(t_list **begin_list, int (*cmp)());
 
 /*
-** *****************************************************************************
+** dlist section
+*/
+
+void				ft_dlstadd_back(t_dlist **lst, t_dlist *new);
+void				ft_dlstadd_front(t_dlist **lst, t_dlist *new);
+void				ft_dlstclear(t_dlist **lst, void (*del)(void*));
+void				ft_dlstdelone(t_dlist *lst, void (*del)(void*));
+void				ft_dlstiter(t_dlist *lst, void (*f)(void*));
+t_dlist				*ft_dlstlast(t_dlist *lst);
+t_dlist				*ft_dlstmap(t_dlist *lst,
+						void *(*f)(void*), void (*del)(void*));
+t_dlist				*ft_dlstnew(void *content);
+int					ft_dlstsize(t_dlist *lst);
+
+/*
 ** get_next_line
-** *****************************************************************************
 */
 
 int					get_next_line(int fd, char **line);
