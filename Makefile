@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/24 01:18:41 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/27 15:19:30 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ HEADER_DIR			= includes/
 SRCS_DIR			= srcs/
 OBJS_DIR			= objs/
 CHAR_DIR			= char/
+DLIST_DIR			= dlist/
 GNL_DIR				= gnl/
 LIST_DIR			= list/
 MEM_DIR				= mem/
@@ -74,6 +75,16 @@ CHAR				= ft_isalnum \
 					  ft_isprint \
 					  ft_tolower \
 					  ft_toupper
+
+DLIST				= ft_dlstadd_back \
+					  ft_dlstadd_front \
+					  ft_dlstclear \
+					  ft_dlstdelone \
+					  ft_dlstiter \
+					  ft_dlstlast \
+					  ft_dlstmap \
+					  ft_dlstnew \
+					  ft_dlstsize
 
 GNL					= get_next_line
 
@@ -120,6 +131,7 @@ STR					= ft_atoi \
 					  ft_strtrim
 
 SRCS				= $(addprefix $(CHAR_DIR), $(addsuffix .c, $(CHAR))) \
+					  $(addprefix $(DLIST_DIR), $(addsuffix .c, $(DLIST))) \
 					  $(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL))) \
 					  $(addprefix $(LIST_DIR), $(addsuffix .c, $(LIST))) \
 					  $(addprefix $(MEM_DIR), $(addsuffix .c, $(MEM))) \
@@ -163,6 +175,7 @@ $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
 $(OBJS_DIR):
 						@mkdir -p $(OBJS_DIR)
 						@mkdir -p $(OBJS_DIR)$(CHAR_DIR)
+						@mkdir -p $(OBJS_DIR)$(DLIST_DIR)
 						@mkdir -p $(OBJS_DIR)$(GNL_DIR)
 						@mkdir -p $(OBJS_DIR)$(LIST_DIR)
 						@mkdir -p $(OBJS_DIR)$(MEM_DIR)
