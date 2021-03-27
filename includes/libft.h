@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:27:39 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/27 15:23:51 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/03/27 16:45:53 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct		s_dlist
 */
 
 void				ft_bzero(void *s, size_t n);
+void				*ft_calloc(size_t count, size_t size);
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -59,10 +60,15 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 
 /*
+** digit section
+*/
+int					ft_atoi(const char *str);
+int					ft_cnt_digits(int num);
+
+/*
 ** str section (without memory allocation)
 */
 
-int					ft_atoi(const char *str);
 char				*ft_strchr(const char *s, int c);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strcpy(char *dst, const char *src);
@@ -78,7 +84,6 @@ char				*ft_strrchr(const char *s, int c);
 ** str section (with memory allocation)
 */
 
-void				*ft_calloc(size_t count, size_t size);
 char				*ft_itoa(int n);
 char				**ft_split(char const *s, char c);
 char				*ft_substr(char const *s, unsigned int start, size_t len);

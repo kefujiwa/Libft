@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/27 15:23:32 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/27 16:48:41 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ HEADER_DIR			= includes/
 SRCS_DIR			= srcs/
 OBJS_DIR			= objs/
 CHAR_DIR			= char/
+DIGIT_DIR			= digit/
 DLIST_DIR			= dlist/
 GNL_DIR				= gnl/
 LIST_DIR			= list/
@@ -75,6 +76,9 @@ CHAR				= ft_isalnum \
 					  ft_isprint \
 					  ft_tolower \
 					  ft_toupper
+
+DIGIT				= ft_atoi \
+					  ft_cnt_digits
 
 DLIST				= ft_dlstadd_back \
 					  ft_dlstadd_front \
@@ -100,6 +104,7 @@ LIST				= ft_lstadd_back \
 					  ft_lstsort
 
 MEM					= ft_bzero \
+					  ft_calloc \
 					  ft_memccpy \
 					  ft_memchr \
 					  ft_memcmp \
@@ -112,8 +117,7 @@ PUT					= ft_putchar_fd \
 					  ft_putnbr_fd \
 					  ft_putstr_fd
 
-STR					= ft_atoi \
-					  ft_strchr \
+STR					= ft_strchr \
 					  ft_strcmp \
 					  ft_strcpy \
 					  ft_strlcat \
@@ -122,7 +126,6 @@ STR					= ft_atoi \
 					  ft_strnstr \
 					  ft_strncmp \
 					  ft_strrchr \
-					  ft_calloc \
 					  ft_itoa \
 					  ft_split \
 					  ft_substr \
@@ -132,6 +135,7 @@ STR					= ft_atoi \
 					  ft_strtrim
 
 SRCS				= $(addprefix $(CHAR_DIR), $(addsuffix .c, $(CHAR))) \
+					  $(addprefix $(DIGIT_DIR), $(addsuffix .c, $(DIGIT))) \
 					  $(addprefix $(DLIST_DIR), $(addsuffix .c, $(DLIST))) \
 					  $(addprefix $(GNL_DIR), $(addsuffix .c, $(GNL))) \
 					  $(addprefix $(LIST_DIR), $(addsuffix .c, $(LIST))) \
@@ -176,6 +180,7 @@ $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
 $(OBJS_DIR):
 						@mkdir -p $(OBJS_DIR)
 						@mkdir -p $(OBJS_DIR)$(CHAR_DIR)
+						@mkdir -p $(OBJS_DIR)$(DIGIT_DIR)
 						@mkdir -p $(OBJS_DIR)$(DLIST_DIR)
 						@mkdir -p $(OBJS_DIR)$(GNL_DIR)
 						@mkdir -p $(OBJS_DIR)$(LIST_DIR)
