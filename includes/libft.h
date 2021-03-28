@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:27:39 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/28 16:26:17 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/03/28 16:41:56 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int					ft_toupper(int c);
 ** digit section
 */
 int					ft_atoi(const char *str);
+long				ft_atol(const char *str);
 int					ft_cnt_digits(int num);
 
 /*
