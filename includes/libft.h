@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:27:39 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/27 16:45:53 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/03/28 16:26:17 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
+int					ft_isspace(int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 

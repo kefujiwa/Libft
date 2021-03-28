@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/27 16:48:41 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/28 16:51:24 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,7 @@ CHAR				= ft_isalnum \
 					  ft_isascii \
 					  ft_isdigit \
 					  ft_isprint \
+					  ft_isspace \
 					  ft_tolower \
 					  ft_toupper
 

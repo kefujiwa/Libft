@@ -6,20 +6,11 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:08:42 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/13 01:54:55 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/03/28 16:27:32 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	is_space(char c)
-{
-	if (c == '\t' || c == '\n' || c == '\v'
-		|| c == '\f' || c == '\r' || c == ' ')
-		return (1);
-	else
-		return (0);
-}
 
 static int	calc_atoi(const char *str, int sign)
 {
@@ -51,7 +42,7 @@ int			ft_atoi(const char *str)
 	int	sign;
 
 	sign = 1;
-	while (is_space(*str))
+	while (ft_isspace(*str))
 		str++;
 	if (*str == '+' || *str == '-')
 	{
