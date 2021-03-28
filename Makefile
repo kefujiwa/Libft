@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/28 16:54:15 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/03/28 16:58:34 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ CHAR				= ft_isalnum \
 					  ft_toupper
 
 DIGIT				= ft_atoi \
+					  ft_atoi_base \
 					  ft_atol \
 					  ft_cnt_digits
 
