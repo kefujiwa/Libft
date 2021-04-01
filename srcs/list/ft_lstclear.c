@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 04:25:34 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/08 23:50:27 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:18:06 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*next_lst;
 
-	if (!lst || !del)
+	if (!lst)
 		return ;
 	while (*lst)
 	{
