@@ -4,7 +4,7 @@ Libft is an extension/remake of the standard library.
 
 ## Getting Started
 
-```
+```bash
 git clone https://github.com/kefujiwa/Libft.git
 cd Libft
 make all
