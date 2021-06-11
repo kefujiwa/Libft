@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 15:27:39 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/28 16:58:12 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:19:46 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@
 #  define BUFFER_SIZE 1024
 # endif
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
-typedef struct		s_dlist
+typedef struct s_dlist
 {
 	void			*content;
 	struct s_dlist	*prev;
 	struct s_dlist	*next;
-}					t_dlist;
+}	t_dlist;
 
 /*
 ** mem section

@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 04:27:27 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/06/30 04:27:40 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:38:29 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_bzero(void *s, size_t n)
 {
 	while (n--)
 	{
-		*(char*)s = 0;
+		*(char *)s = 0;
 		s++;
 	}
 }

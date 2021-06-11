@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 02:11:44 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/25 02:17:13 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:48:07 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	char *head;
+	char	*head;
 
 	head = dst;
 	while (*src)

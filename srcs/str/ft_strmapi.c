@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:15:07 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/06 23:37:45 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:51:04 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (NULL);
-	str = (char*)ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	str = (char *)ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	index = 0;

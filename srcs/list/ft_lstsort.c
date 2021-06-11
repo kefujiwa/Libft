@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 00:28:05 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/24 00:38:07 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:38:04 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static t_list	*merge_sort(t_list *lst, int (*f)(void*, void*))
 	return (merge(merge_sort(lst, f), merge_sort(x, f), f));
 }
 
-void			ft_lstsort(t_list **begin_list, int (*cmp)())
+void	ft_lstsort(t_list **begin_list, int (*cmp)())
 {
 	if (!begin_list || !*begin_list)
 		return ;

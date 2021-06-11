@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:14:52 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/01 22:07:27 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:50:51 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	char	*p_src;
 
-	p_src = (char*)src;
+	p_src = (char *)src;
 	if (dstsize != 0)
 	{
 		while (dstsize - 1 && *src)

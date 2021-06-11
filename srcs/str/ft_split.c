@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:14:02 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/06 23:36:07 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:47:14 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	**split_s(char **split, char *s, char c, int words)
 		while (*s == c)
 			s++;
 		len = word_len(s, c);
-		split[i] = (char*)ft_calloc(len + 1, sizeof(char));
+		split[i] = (char *)ft_calloc(len + 1, sizeof(char));
 		if (!split[i])
 		{
 			free_all(split, i);
@@ -82,17 +82,17 @@ static char	**split_s(char **split, char *s, char c, int words)
 	return (split);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		cnt;
 
 	if (!s)
 		return (NULL);
-	cnt = word_cnt((char*)s, c);
-	split = (char **)ft_calloc(cnt + 1, sizeof(char*));
+	cnt = word_cnt((char *)s, c);
+	split = (char **)ft_calloc(cnt + 1, sizeof(char *));
 	if (!split)
 		return (NULL);
-	split = split_s(split, (char*)s, c, cnt);
+	split = split_s(split, (char *)s, c, cnt);
 	return (split);
 }

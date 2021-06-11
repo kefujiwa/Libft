@@ -6,13 +6,13 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 16:56:28 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/28 17:02:16 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:28:13 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		is_valid_base(char *base)
+static int	is_valid_base(char *base)
 {
 	char	*tmp;
 
@@ -34,7 +34,7 @@ static int		is_valid_base(char *base)
 	return (1);
 }
 
-static int		get_value(char c, char *base)
+static int	get_value(char c, char *base)
 {
 	char	*head;
 
@@ -48,7 +48,7 @@ static int		get_value(char c, char *base)
 	return (-1);
 }
 
-int				ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(char *str, char *base)
 {
 	int	total;
 	int	sign;
@@ -60,16 +60,18 @@ int				ft_atoi_base(char *str, char *base)
 		return (0);
 	while (ft_isspace(*str))
 		str++;
-	while (*str == '-' || *str == '+')
+	while (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
-			sign *= -1;
+			sign = -1;
 		str++;
 	}
-	while ((val = get_value(*str, base)) >= 0)
+	val = get_value(*str, base);
+	while (val >= 0)
 	{
 		total = total * ft_strlen(base) + val;
 		str++;
+		val = get_value(*str, base);
 	}
 	return (total * sign);
 }

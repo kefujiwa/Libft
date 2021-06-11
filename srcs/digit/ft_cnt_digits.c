@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 16:33:27 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/27 16:46:08 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:31:12 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,16 @@ int	ft_cnt_digits(int n)
 	if (n < 0)
 	{
 		cnt++;
-		if (n /= 10)
+		n /= 10;
+		if (n)
 			cnt++;
 		n *= -1;
 	}
-	while (n /= 10)
+	n /= 10;
+	while (n)
+	{
 		cnt++;
+		n /= 10;
+	}
 	return (cnt);
 }

@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:09:59 by kefujiwa          #+#    #+#             */
-/*   Updated: 2021/03/27 16:46:43 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:46:14 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	set_nbr(int n, char *s, int index)
 		s[0] = '-';
 		if (n <= -10)
 			set_nbr((n / 10) * -1, s, index - 1);
-		s[index] = "0123456789"[(n % 10) * -1];
+		s[index] = "0123456789"[n % 10 * -1];
 	}
 	else
 	{
@@ -29,13 +29,13 @@ static void	set_nbr(int n, char *s, int index)
 	}
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*s;
 	int		cnt;
 
 	cnt = ft_cnt_digits(n);
-	s = (char*)ft_calloc(cnt + 1, sizeof(char));
+	s = (char *)ft_calloc(cnt + 1, sizeof(char));
 	if (!s)
 		return (NULL);
 	s[cnt] = '\0';

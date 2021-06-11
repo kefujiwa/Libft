@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 22:23:46 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/08 23:33:12 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:51:54 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (len >= 0)
 	{
 		if (s[len] == (char)c)
-			return ((char*)&s[len]);
+			return ((char *)&s[len]);
 		len--;
 	}
 	return (NULL);

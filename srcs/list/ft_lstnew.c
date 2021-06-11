@@ -6,7 +6,7 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 04:21:53 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/03 02:25:30 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/11 18:37:39 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*lst;
 
-	lst = (t_list*)malloc(sizeof(t_list));
+	lst = (t_list *)malloc(sizeof(t_list));
 	if (!lst)
 		return (NULL);
 	lst->content = content;
