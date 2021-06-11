@@ -6,7 +6,7 @@
 #    By: kefujiwa <kefujiwa@student.42tokyo.jp      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/29 23:54:56 by kefujiwa          #+#    #+#              #
-#    Updated: 2021/03/28 16:58:34 by kefujiwa         ###   ########.fr        #
+#    Updated: 2021/06/11 17:16:53 by kefujiwa         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -169,13 +169,11 @@ fclean:				clean
 re:					fclean all
 
 # Variable Rules #
-$(NAME):			$(OBJS)
+$(NAME):			$(OBJS_DIR) $(OBJS)
 						@$(AR) $(NAME) $(OBJS)
 						@echo "\n\n$(_GREEN)Library '$(NAME)' compiled.\n$(_RESET)"
 
 # Compiled Source Files #
-$(OBJS):			$(OBJS_DIR)
-
 $(OBJS_DIR)%.o: 	$(SRCS_DIR)%.c
 						@printf "$(_YELLOW)Generating libft objects... %-33.33s\r$(_RESET)" $@
 						@$(CC) $(CFLAGS) -I $(HEADER_DIR) -c $< -o $@
