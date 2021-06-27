@@ -6,9 +6,11 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:09:24 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/06/30 01:09:25 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:41:50 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

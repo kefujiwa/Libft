@@ -6,9 +6,11 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 01:09:34 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/06/30 01:09:39 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:41:57 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

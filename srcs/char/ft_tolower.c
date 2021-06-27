@@ -6,9 +6,11 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 04:18:53 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/01 21:54:36 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:42:15 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

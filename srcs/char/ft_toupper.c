@@ -6,9 +6,11 @@
 /*   By: kefujiwa <kefujiwa@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 04:26:17 by kefujiwa          #+#    #+#             */
-/*   Updated: 2020/07/01 21:54:24 by kefujiwa         ###   ########.fr       */
+/*   Updated: 2021/06/27 15:42:20 by kefujiwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
